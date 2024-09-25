@@ -1,13 +1,40 @@
 //find the multiple of matrix
 #include<iostream>
 using namespace std;
-int main()
-{
-    int i,j,C, A[3][3]={{2,3,4},{7,6,5},{5,4,3}},B[3][3]={{6,3,8},{4,1,6},{7,4,7}};
-    for(i=0;i<=3;i++){
-        for(j=0;j<=3;j++){
-            C = A[i][j]*B[j][i];
-            cout<<C<<"  ";
+int main(){
+    int a[10][10],b[10][10],m[10][10],i,j,c,d,e,f;
+    cout<<"enter the number of row of 'a' matrix = ";
+    cin>>c;
+    cout<<"enter the number of column of 'a' matrix = ";
+    cin>>d;
+    cout<<"enter the number of row of 'b' matrix = ";
+    cin>>e;
+    cout<<"enter the number of column of 'b' matrix = ";
+    cin>>f;
+    if(d!=e){
+        cout<<"multipication of this matrix is not possible because column of matrix 'a' is not equal to row of matrix of 'b' ";
+        return 0;
+    }
+    cout<<"enter the element of 'a' matrix =\n";
+    for(i=0;i<c;i++){
+        for(j=0;j<d;j++){
+            cin>>a[i][j];
+        }
+    }
+    cout<<"enter the element of 'b' matrix =\n";
+    for(i=0;i<e;i++){
+        for(j=0;j<f;j++){
+            cin>>b[i][j];
+        }
+    }
+    cout<<"multipication of matrix a and b =\n ";
+    for(i=0;i<c;i++){
+        for(j=0;j<f;j++){
+            m[i][j]=0;
+            for(int k=0;k<d;k++){
+                m[i][j]=m[i][j]+a[i][k]*b[k][j];
+            }
+            cout<<m[i][j]<<" ";
         }
         cout<<endl;
     }
